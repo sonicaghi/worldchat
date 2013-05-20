@@ -89,3 +89,15 @@ textarea {
 	font-weight: normal;
 	display: none;
 }
+
+@media only screen and (max-width: 768px) {
+	h1 small {
+		display: block;
+	}
+	.chat .languages img {
+		margin-right: 5px;
+	}
+	textarea {
+		margin-top:10px;
+	}
+}
