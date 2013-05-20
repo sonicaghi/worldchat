@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  
+  <title>WorldChat</title>
+
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/skin.css" />
+  <script src="js/vendor/custom.modernizr.js"></script>
+
+</head>
+<body>
+
+	<ul class="side-nav users">
+	  <li><img src="img/en.png"/> Anonfunction</li>
+	  <li><img src="img/en.png"/> Anonfunction</li>
+	</ul>
+
+	<div class="row">
+		<div class="large-12 columns container">
+
+			<a href="https://github.com/you" class="github-ribbon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+			<div class="row">
+			<div class="large-12 columns">
+			  <h1>worldchat.io <small>powered by <a href="https://www.mashape.com/">mashape</a> &amp; <a href="http://firebase.com">firebase</a></small></h1>
+			</div>
+			</div>
+			<div class="row">
+			<div class="large-12 columns chat">
+				<div class="row">
+			  		<div class="large-12 columns register">
+			  			<h3 class="subheader">Choose your username and language to start chatting with the world.</h3>
+			  			<div class="row">
+				  			<div class="large-4 columns">
+				  				<input type="text" placeholder="Username"/>
+				  			</div>
+				  			<div class="large-8 columns">
+				      			<div class="languages">
+					      			<img src="img/en.png" data-lang="en" data-tooltip class="has-tip" title="Hello!"/> 
+					      			<img src="img/it.png" data-lang="it" data-tooltip class="has-tip" title="Ciao!"/> 
+					      			<img src="img/de.png" data-lang="de" data-tooltip class="has-tip" title="Hallo!"/> 
+					      			<img src="img/es.png" data-lang="es" data-tooltip class="has-tip" title="Hola!"/> 
+					      			<img src="img/ru.png" data-lang="ru" data-tooltip class="has-tip" title="Privet!!"/> 
+					      			<img src="img/fr.png" data-lang="fr" data-tooltip class="has-tip" title="Bonjour!"/> 
+				  				</div>
+				  			</div>
+			  			</div>
+			  		<textarea placeholder=""></textarea>
+			  		<div data-alert="" class="alert-box error">
+			          You may have forgot to enter either your username, language, or message. They're kinda required. Sorry about that.
+			          <a href="" class="close">×</a>
+			        </div>
+			  	</div>
+			</div>
+
+			<div class="messages"></div>
+
+			</div>
+		</div>
+	</div>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/handlebars.js"></script>
+
+  <script src="js/foundation.min.js"></script>
+  <script src="js/foundation/foundation.tooltips.js"></script>
+    
+  <script type='text/javascript' src='https://cdn.firebase.com/v0/firebase.js'></script>
+  <script src="js/client.js"></script>
+  
+</body>
+</html>

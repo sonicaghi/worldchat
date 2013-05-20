@@ -1,0 +1,91 @@
+body {
+	background: #fff url("../img/white-map.png") no-repeat;
+}
+
+h1 small {
+	font-size:.3em;
+	text-transform: uppercase;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
+	border-color: skyblue;
+	box-shadow: none;
+	background: white;
+}
+
+textarea {
+	height:100px;
+	margin: 0;
+}
+
+.container {
+	background: rgba(255,255,255,.5);
+	padding-top:30px;
+}
+
+.users {
+	position: fixed;
+	top:0;
+	left: 0;
+	padding: 30px;
+	background: rgba(255,255,255,.5);
+	display: none;
+}
+
+.users li {
+	margin: 10px 0
+}
+
+.users img {
+	height: 20px;
+}
+
+.register {
+	padding-top:10px;
+}
+
+.register h4 {
+	margin-bottom:5px;
+}
+
+.messages {
+	margin: 20px 0 0;
+}
+
+.chat .message {
+	border-top:1px solid #fff;
+	border-bottom:1px solid #ddd;
+	padding: 20px 0 0;
+}
+
+.chat .message .translating {
+	float: right;
+}
+
+.chat .message img {
+	height: 20px;
+}
+
+.chat .message:nth-child(odd) {
+	background: none;
+}
+
+.chat .message:first-child {
+	border-top:none;
+}
+
+.chat .languages img {
+	height:34px;
+	margin-right: 10px;
+	opacity: .5;
+	cursor: pointer;
+}
+
+.chat .languages img.active {
+	opacity: 1;
+}
+
+.error {
+	font-weight: normal;
+	display: none;
+}
