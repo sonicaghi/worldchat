@@ -44,7 +44,8 @@ $(function(){
 	$('.register textarea').keypress(function(e) {
 	  if (e.keyCode == 13 && !e.shiftKey) {
 	  	var message = $.trim($(this).val());
-	  	if (message.length >= 1 && $('.register input').val().length >= 1 && $('.register .languages img.active').length) {
+	  	var username = $.trim($('.register input').val());
+	  	if (message.length >= 1 && username.length >= 1 && $('.register .languages img.active').length) {
 		  	var username = $('.register input').val();
 		  	var language = $('.register .languages img.active').data('lang');
 		  	e.preventDefault();
