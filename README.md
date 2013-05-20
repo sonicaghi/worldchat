@@ -6,7 +6,7 @@ A chat application that can translate messages from across the world.
 
 1) `git clone git@github.com:Mashape/worldchat.git`
 
-2) `cd server && composer install`
+2) `cd worldchat/server && composer install`
 
 3 Ceate a <a href="http://firebase.com">firebase database</a> and signup for a mashape <a href="https://www.mashape.com/translated/mymemory-translation-memory">MyMemory Translation API</a> freemium account.
 
