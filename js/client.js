@@ -85,15 +85,17 @@ $(function(){
 			  	$(result).prependTo('.messages');
 		  	} else {
 		  		var data = { "id": reference, "username": username, "langauge": language, "message" : message[language]};
+		  		var result = messageTemplate(data);
 		  		if (localStorage.language) {
 		  			$.post("server/?request=translate", { id: reference, message: message[language], from: language, to: localStorage.language })
 			  		.done(function(response){
 			  			$('.messages [data-id='+reference+']').find('p.text').html(response);
 			  		});	
+			  		$(result).prependTo('.messages').find('p.text').append('<span class="success label translating">Translating</span>');
+		  		} else {
+					$(result).prependTo('.messages');
 		  		}
-		  		var result = messageTemplate(data);
 				$('.messages .loading').hide();
-			  	$(result).prependTo('.messages').find('p.text').append('<span class="success label translating">Translating</span>');
 		  	}
 		});
 	}
