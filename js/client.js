@@ -21,7 +21,6 @@ $(function(){
   	// create username
 	$('.register input').on('change', function(){
 		localStorage.username = $(this).val();
-		$.post("server/?request=new_user", { username: $(this).val(), language: $('.register .languages img.active').data('lang') });
 	});
 
 	// choose language
@@ -34,9 +33,6 @@ $(function(){
 			$('.register input').focus();
 		}
 		localStorage.language = $(this).data('lang');
-		$.post("server/?request=new_user", 
-			{ username: $('.register input').val(), language: $(this).data('lang') }
-		);
 		getData();
 	});
 
@@ -53,10 +49,7 @@ $(function(){
 		  	var data = { "username": username, "langauge": language, "message" : message, "id" : ''};
 			var result = messageTemplate(data);
 			$(result).addClass('loading').prependTo('.messages');
-		  	$.post("server/?request=new_message", { username: username, language: language, message: message })
-		  	.done(function(id) {
-			  console.log(id);
-			});
+		  	$.post("server/?request=new_message", { username: username, language: language, message: message });
 		  	$('.register .error').slideUp(100);
 	  	} else {
 	  		$('.register .error').slideDown(100);
