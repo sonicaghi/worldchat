@@ -43,8 +43,8 @@ $(function(){
 	// enter message
 	$('.register textarea').keypress(function(e) {
 	  if (e.keyCode == 13 && !e.shiftKey) {
-	  	if ($(this).val().length >= 1 && $('.register input').val().length >= 1 && $('.register .languages img.active').length) {
-	  		var message = $(this).val();
+	  	var message = $.trim($(this).val());
+	  	if (message.length >= 1 && $('.register input').val().length >= 1 && $('.register .languages img.active').length) {
 		  	var username = $('.register input').val();
 		  	var language = $('.register .languages img.active').data('lang');
 		  	e.preventDefault();
@@ -60,7 +60,6 @@ $(function(){
 	  	} else {
 	  		$('.register .error').slideDown(100);
 	  	}
-	  	
 	  }
 	});
 
