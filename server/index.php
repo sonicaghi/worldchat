@@ -17,7 +17,7 @@ elseif ($request == 'new_message') {
 	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 	$language = filter_var($_POST['language'], FILTER_SANITIZE_STRING);
 	$message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-	if (strlen($message) >= 1) {
+	if ($username && $language && strlen($message) >= 1) {
 		new_message($username, $language, $message);
 	}
 }
