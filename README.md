@@ -10,6 +10,6 @@ A chat application that can translate messages from across the world.
 
 3 Ceate a <a href="http://firebase.com">firebase database</a> and signup for a mashape <a href="https://www.mashape.com/translated/mymemory-translation-memory">MyMemory Translation API</a> freemium account.
 
-4) Configure `/server/index.php` with your firebase reference and mashape API key
+4) Configure `/server/config.php` with your firebase reference and mashape API key
 
 5) Deploy!
