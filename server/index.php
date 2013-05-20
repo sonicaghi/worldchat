@@ -20,7 +20,9 @@ elseif ($request == 'new_message') {
 	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 	$language = filter_var($_POST['language'], FILTER_SANITIZE_STRING);
 	$message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-	new_message($username, $language, $message);
+	if (strlen($message) >= 1 {
+		new_message($username, $language, $message);
+	}
 }
 elseif ($request == 'translate') {
 	$id = filter_var($_POST['id'], FILTER_SANITIZE_STRING);
@@ -66,15 +68,17 @@ function translate($id, $message, $from, $to){
 	$response = $response;
 	$translated_message = $response->responseData->translatedText;
 
-	// Update firebase
-	Unirest::patch(firebase_db."messages/".$id."/message.json", array( "Accept" => "application/json" ),
-	  	json_encode(array(
-			$to => $translated_message
-	  	))
-	);
+	if ($translated_message != "NO QUERY SPECIFIED. EXAMPLE REQUEST: GET?Q=HELLO&LANGPAIR=EN|IT") {
+		// Update firebase
+		Unirest::patch(firebase_db."messages/".$id."/message.json", array( "Accept" => "application/json" ),
+		  	json_encode(array(
+				$to => $translated_message
+		  	))
+		);
 
-	// send translated message back
-	echo $translated_message;
+		// send translated message back
+		echo $translated_message;
+	}
 }
 
 ?>
