@@ -37,6 +37,7 @@ $(function(){
 		$.post("server/?request=new_user", 
 			{ username: $('.register input').val(), language: $(this).data('lang') }
 		);
+		getData();
 	});
 
 	// enter message
@@ -69,28 +70,35 @@ $(function(){
 	var messages = firebase.child('messages');
 
 	// firebase data feed
-  	messages.limit(5).on('child_added', function (snapshot) {
-  		var response = snapshot.val();
-  		var reference = snapshot.name();
-	  	var username = response.username;
-	  	var language = response.language;
-	  	var message = response.message;
-	  	if (message[localStorage.language]) {
-		  	var data = { "id": reference, "username": username, "langauge": language, "message" : message[localStorage.language]};
-		  	var result = messageTemplate(data);
-			$('.messages .loading').hide();
-		  	$(result).prependTo('.messages');
-	  	} else {
-	  		var data = { "id": reference, "username": username, "langauge": language, "message" : message[language]};
-	  		$.post("server/?request=translate", { id: reference, message: message[language], from: language, to: localStorage.language })
-	  		.done(function(response){
-	  			$('.messages [data-id='+reference+']').find('p.text').html(response);
-	  		});	
-	  		var result = messageTemplate(data);
-			$('.messages .loading').hide();
-		  	$(result).prependTo('.messages').find('p.text').append('<span class="success label translating">Translating</span>');
-	  	}
-	});
+  	getData = function(){
+  		messages.limit(10).on('child_added', function (snapshot) {
+	  		var response = snapshot.val();
+	  		var reference = snapshot.name();
+		  	var username = response.username;
+		  	var language = response.language;
+		  	var message = response.message;
+		  	$('.messages [data-id='+reference+']').remove();
+		  	if (message[localStorage.language]) {
+			  	var data = { "id": reference, "username": username, "langauge": language, "message" : message[localStorage.language]};
+			  	var result = messageTemplate(data);
+				$('.messages .loading').hide();
+			  	$(result).prependTo('.messages');
+		  	} else {
+		  		var data = { "id": reference, "username": username, "langauge": language, "message" : message[language]};
+		  		if (localStorage.language) {
+		  			$.post("server/?request=translate", { id: reference, message: message[language], from: language, to: localStorage.language })
+			  		.done(function(response){
+			  			$('.messages [data-id='+reference+']').find('p.text').html(response);
+			  		});	
+		  		}
+		  		var result = messageTemplate(data);
+				$('.messages .loading').hide();
+			  	$(result).prependTo('.messages').find('p.text').append('<span class="success label translating">Translating</span>');
+		  	}
+		});
+	}
+
+	getData();
 
   	// foundation tooltips
 	$(document).foundation();
