@@ -15,7 +15,7 @@ $(function(){
 	var messageTemplate = '<div class="row message" data-id="{{id}}"> <div class="large-2 columns"> ' +
 	'<p><img class="flag" src="img/{{langauge}}.png"/>'+
 	'<strong> {{username}} </strong></p></div> ' +
-	'<div class="large-10 columns"> <p class="text"> {{message}}</p> </div> </div> ';
+	'<div class="large-10 columns"> <p class="text"> {{{message}}}</p> </div> </div> ';
 	var messageTemplate = Handlebars.compile(messageTemplate);
 
   	// create username
@@ -99,7 +99,6 @@ $(function(){
 		  	}
 		});
 	}
-
 	getData();
 
   	// foundation tooltips
