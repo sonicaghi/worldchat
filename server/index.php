@@ -3,11 +3,8 @@
 // Unirest PHP HTTP library - http://unirest.io/#php
 require 'vendor/autoload.php';
 
-// Firebase API Reference - https://www.firebase.com
-define("firebase_db", "firebase_database_ref");
-
-// Mashape API Key - https://www.mashape.com
-define("mashape_key", "mashape_api_key");
+// API configuration
+require 'config.php';
 
 // ghetto routing
 $request = $_GET['request'];
@@ -20,7 +17,7 @@ elseif ($request == 'new_message') {
 	$username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 	$language = filter_var($_POST['language'], FILTER_SANITIZE_STRING);
 	$message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-	if (strlen($message) >= 1 {
+	if (strlen($message) >= 1) {
 		new_message($username, $language, $message);
 	}
 }
